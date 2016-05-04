@@ -36,3 +36,21 @@ if caffeine then
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
 
+
+
+-- Bluetooth toggle
+-- 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
+  local checkState = io.popen("/usr/local/bin/blueutil power")
+  local state = checkState:read()
+  
+  if state == "0" then
+    os.execute("/usr/local/bin/blueutil power 1")
+    hs.alert("Bluetooth on")
+  elseif state == "1" then
+    os.execute("/usr/local/bin/blueutil power 0")
+    hs.alert("Bluetooth off")
+  end
+end)
+
+
