@@ -54,3 +54,9 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
 end)
 
 
+
+-- DATE
+-- 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "D", function()
+  hs.alert(os.date())
+end)
